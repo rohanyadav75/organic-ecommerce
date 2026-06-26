@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+.color-primary {
+  @apply text-primary;
+}
+
+.color-secondary {
+  @apply text-secondary;
+}
+
+.color-third {
+  @apply text-third;
+}
+
+.color-fourth {
+  @apply text-fourth;
+}
+.txt-primary {
+  @apply font-primary;
+}
+
+.txt-secondary {
+  @apply font-secondary;
+}
+
+
+@theme {
+  --font-primary: "Lato", sans-serif;
+  --font-secondary: "DM Sans", sans-serif;
+
+  --breakpoint-3xl: 120rem;
+
+  --color-primary: #43aa5c;
+  --color-secondary: #164333;
+  --color-third: #797F7D;
+  --color-fourth: #F8C32C;
+  /* ... */
+}
