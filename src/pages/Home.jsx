@@ -6,6 +6,8 @@ import { FaCloudUploadAlt, FaLock, } from 'react-icons/fa'
 import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
 import AOS from 'aos';
 
+import Card from '../component/Card'
+import Data from '../data/Data'
 
 // Import Swiper styles
 import 'swiper/css';
@@ -16,36 +18,6 @@ import { PiLeafThin } from 'react-icons/pi';
 import { CiWheat as WheatIcon } from 'react-icons/ci';
 import { LuWheat } from 'react-icons/lu';
 
-const blogPosts = [
- 
-  {
-    date: "Mar 16, 2020",
-    category: "Marketing",
-    title: "Boost your conversion rate",
-    description:
-      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla...",
-    image:
-      "https://wp25.dynamiclayers.net/agrox/wp-content/uploads/sites/4/2025/02/project-3.jpg",
-  },
-  {
-    date: "Mar 10, 2020",
-    category: "Sales",
-    title: "How to use search engine optimization to drive sales",
-    description:
-      "Optio cum necessitatibus dolor voluptatum provident commodi et. Qui aperiam fugiat nemo cumque.",
-    image:
-      "https://wp25.dynamiclayers.net/agrox/wp-content/uploads/sites/4/2025/02/project-5.jpg",
-  },
-  {
-    date: "Feb 12, 2020",
-    category: "Business",
-    title: "Improve your customer experience",
-    description:
-      "Cupiditate maiores ullam eveniet adipisci in doloribus nulla minus. Voluptas iusto libero adipisci rem et corporis. Nostrum sint anim sunt aliqua. Nulla eu labore irure...",
-    image:
-      "https://wp25.dynamiclayers.net/agrox/wp-content/uploads/sites/4/2025/02/project-6.jpg",
-  },
-];
 
 const heroSlides = [
   {
@@ -156,7 +128,6 @@ const Home = () => {
         control
         muted
         className="w-full h-[600px] object-cover  mt-25 "
-      // Optional: preview image
       >
       </video>
 
@@ -182,29 +153,10 @@ const Home = () => {
         </div>
 
 
-        
+        {/* Showing Card */}
         <div className="grid md:grid-cols-3 gap-8 mt-10 max-w-6xl mx-auto">
-          {blogPosts.map((  post, index) => (
-            <div key={index} className=" rounded-lg overflow-hidden">
-              <img
-                src={post.image}
-                // alt={post.title}
-                className="w-full h-60 object-cover rounded-lg"
-              />
-              <div className="mt-4">
-                <div className="flex items-center gap-2 text-gray-400 text-sm mb-2">
-                  <span>{post.date}</span>
-                  <span className="bg-gray-800 text-gray-200 px-3 py-1 rounded-full text-xs">
-                    {post.category}
-                  </span>
-                </div>
-                {/* <h3 className="text-white font-semibold text-lg mb-2">
-                  {post.title}
-                </h3> */}
-                <p className="text-gray-400 text-sm">{post.title}</p>
-
-              </div>
-            </div>
+          {Data.map((data) => (
+            <Card key={data.id} {...data} />
           ))}
         </div>
       </div>

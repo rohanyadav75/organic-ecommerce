@@ -1,10 +1,11 @@
 import React from 'react'
 import Home from './pages/Home';
-import Card from './pages/Card';
+// import About from './pages/About';
 const App = () => {
   return (
     <div>
       <Home/>
+      {/* <About/> */}
     </div>
   )
 }
