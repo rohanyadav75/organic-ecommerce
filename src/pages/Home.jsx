@@ -17,6 +17,7 @@ import { CiWheat as WheatIcon } from 'react-icons/ci';
 import { LuWheat } from 'react-icons/lu';
 
 const blogPosts = [
+ 
   {
     date: "Mar 16, 2020",
     category: "Marketing",
@@ -179,8 +180,11 @@ const Home = () => {
             > Services!</RoughNotation></h1>
           <p className='mt-5 text-[18px]'>Agriculture is the backbone of our society, providing food, materials, and economic stability.</p>
         </div>
+
+
+        
         <div className="grid md:grid-cols-3 gap-8 mt-10 max-w-6xl mx-auto">
-          {blogPosts.map((post, index) => (
+          {blogPosts.map((  post, index) => (
             <div key={index} className=" rounded-lg overflow-hidden">
               <img
                 src={post.image}
