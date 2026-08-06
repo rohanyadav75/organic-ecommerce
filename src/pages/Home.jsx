@@ -2,8 +2,10 @@ import React, { useEffect } from 'react'
 import AOS from 'aos';
 import Homehero from '../component/home/Homehero';
 import Homeabout from '../component/home/Homeabout';
-import Homeservice from '../component/home/Homeservice';
-import Homevideo from '../component/home/Homevideo';
+import Homecategory from '../component/home/Homecategory';
+import Homeshop from '../component/home/Homeshop';
+import Homewhychoose from '../component/home/Homewhychoose';
+import Homeimage from '../component/home/Homeimage';
 
 const Home = () => {
 
@@ -20,9 +22,11 @@ const Home = () => {
     <>
 
       <Homehero />
+      <Homecategory />
       <Homeabout />
-      <Homevideo/>
-      <Homeservice/>
+      <Homeimage />
+      <Homeshop/>
+      <Homewhychoose />
 
     </>
   )

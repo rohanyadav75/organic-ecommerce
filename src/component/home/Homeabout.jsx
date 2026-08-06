@@ -1,15 +1,20 @@
 import React from 'react'
+import { motion } from "framer-motion";
 import { RoughNotation } from 'react-rough-notation'
 import { about, farmer } from '../../assest/images/img'
 import { FaCloudUploadAlt, FaLock, LuWheat, WheatIcon } from '../../assest/icons/icon'
+import GlareHover from '../react-bits/GlareHover';
 
 const Homeabout = () => {
     return (
         <>
             <div className="max-w-6xl mx-auto  grid md:grid-cols-2 items-center gap-40 mt-25">
                 <div className='relative flex items-center justify-center'>
-                    <img className="rounded-lg shadow-2xl p-2  w-full max-w-sm" src={about} alt="" />
-                    <img className='absolute -right-20 top-40 -translate-y-1/2 w-[35%]  md:w-60 ' src={farmer} alt="" />
+
+                    <motion.img whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}
+
+                        className="rounded-lg shadow-2xl p-2 h-100  max-w-sm" src={about} alt="" />
+
 
                 </div>
 
@@ -43,18 +48,18 @@ const Homeabout = () => {
                                 and Vegetables</p>
                         </li>
                         <li className='flex items-center gap-4'>
-                            <FaLock className="color-primary text-5xl" />
+                            <FaLock className="color-primary text" />
                             <p className='font-semibold text-[14px] txt-secondary color-secondary  color-secondary '>Agribusiness Training
                                 and Workshops</p>
                         </li>
 
                     </ul>
 
-                    <ul data-aos="fade-up" className='leading-[1.8] mt-7 font-medium color-secondary gap-4'>
+                    {/* <ul data-aos="fade-up" className='leading-[1.8] mt-7 font-medium color-secondary gap-4'>
                         <li className='flex items-center gap-2'><LuWheat className='text-xl color-fourth' /> Pioneering Excellence in the Agriculture Market</li>
                         <li className='flex items-center gap-2'><LuWheat className='text-xl color-fourth' /> Pioneering Excellence in the Agriculture Market</li>
                         <li className='flex items-center gap-2'><LuWheat className='text-xl color-fourth' /> Pioneering Excellence in the Agriculture Market</li>
-                    </ul>
+                    </ul> */}
 
 
                 </div>
