@@ -6,6 +6,7 @@ import Homecategory from '../component/home/Homecategory';
 import Homeshop from '../component/home/Homeshop';
 import Homewhychoose from '../component/home/Homewhychoose';
 import Homeimage from '../component/home/Homeimage';
+import Footer from '../component/layouts/Footer';
 
 const Home = () => {
 
@@ -27,6 +28,7 @@ const Home = () => {
       <Homeimage />
       <Homeshop/>
       <Homewhychoose />
+      <Footer/>
 
     </>
   )

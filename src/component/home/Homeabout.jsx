@@ -39,7 +39,7 @@ const Homeabout = () => {
                         </RoughNotation>
                     </h1>
 
-                    <p data-aos="fade-up" className='mt-5 text-[14px] txt-secondary color-third'>Agriculture is the backbone of our society, providing food, materials, and economic stability.
+                    <p data-aos="fade-up" className='mt-5 text-[14px] txt-secondary'>Agriculture is the backbone of our society, providing food, materials, and economic stability.
                         As the world population grows, the need for sustainable farming practices has never been more critical.</p>
                     <ul data-aos="fade-up" className='flex mt-8 p-0 gap-5 '>
                         <li className='flex  items-center gap-4'>

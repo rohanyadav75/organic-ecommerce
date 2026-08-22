@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Homeherodata from '../../data/Homeherodata';
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
@@ -18,6 +18,27 @@ import { motion } from "framer-motion";
 
 const Homehero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [typedHeadline, setTypedHeadline] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+
+  const currentTitle = Homeherodata[activeIndex]?.title || "Pure Organic Harvest";
+
+  useEffect(() => {
+    let index = 0;
+    setTypedHeadline("");
+    setShowCursor(true);
+
+    const typingInterval = setInterval(() => {
+      setTypedHeadline((prev) => prev + currentTitle[index]);
+      index += 1;
+      if (index >= currentTitle.length) {
+        clearInterval(typingInterval);
+        setTimeout(() => setShowCursor(false), 1000);
+      }
+    }, 100);
+
+    return () => clearInterval(typingInterval);
+  }, [currentTitle]);
 
   return (
     <div>
@@ -86,7 +107,13 @@ const Homehero = () => {
                     }}
                     className="text-6xl font-bold text-white"
                   >
-                    {slide.title}
+                    {typedHeadline}
+                    <motion.span
+                      animate={{ opacity: [0, 1, 0] }}
+                      transition={{ repeat: Infinity, duration: 1.2 }}
+                      className="inline-block ml-2 h-10 w-1 rounded-sm bg-white"
+                      style={{ visibility: showCursor ? 'visible' : 'hidden' }}
+                    />
                   </motion.h1>
 
                   <motion.p

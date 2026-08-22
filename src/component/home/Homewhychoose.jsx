@@ -33,7 +33,7 @@ const Homewhychoose = () => {
 
 
 
-            <div className="grid grid-cols-2 max-w-6xl items-center justify-items-center align-middle mt-30 mx-auto">
+            <div className="grid md:grid-cols-2 md:gap-2 max-w-6xl items-center justify-items-center align-middle mt-30 mx-auto">
 
                 {Homecontent.map((post, index) => (
 

@@ -1,35 +1,41 @@
 import React from 'react'
-import { motion } from 'framer-motion'
-import { rohan } from '../../assest/images/img'
-import products from '../../data/product'
 
+const styles = {
+  card: {
+    boxShadow: '0 10px 15px rgba(0,0,0,0.08)',
+    borderRadius: '16px',
+    color: '#374151',
+    fontSize: '12px',
+    marginTop: '40px',
+    border: '1px solid #F3C123',
+    backgroundColor: '#ffffff',
+    overflow: 'hidden',
+  },
+  img: { width: '100%', height: '192px', objectFit: 'cover', display: 'block' },
+  content: { padding: '12px' },
+  title: { textAlign: 'center', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' },
+  category: { textAlign: 'center', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' },
+  priceRow: { display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', marginTop: '8px' },
+  price: { fontWeight: 600 },
+  original: { fontSize: '10px', color: '#6b7280', textDecoration: 'line-through' },
+}
 
-const Productcard = ({ image, name, price, originalPrice }) => {
+const Productcard = ({ image, name, price, originalPrice, category }) => {
+
   return (
     <div>
-      <div className='shadow-lg  rounded-b-2xl txt-secondary text-[12px] h-70 mt-10 border  border-fourth bg-[#ffff]'>
-        <img
-          src={image}
-          alt={name}
-          
-        />
-        <div className='p-2 '>
-          <h1 className=' text-center'>{name}</h1><br />
-          <div className='flex justify-center space-x-1.5 items-center'>
-            <p>₹{price}</p><br />
-            <p className='text-[10px] text-gray-300'><del>₹{originalPrice}</del></p><br />
+      <div style={styles.card}>
+        <img style={styles.img} src={image} alt={name || 'product'} />
+        <div style={styles.content}>
+          <h1 style={styles.title}>{name}</h1>
+          <h1 style={styles.category}>{category}</h1>
+
+          <div style={styles.priceRow}>
+            <p style={styles.price}>₹{price}</p>
+            {originalPrice && <p style={styles.original}>₹{originalPrice}</p>}
           </div>
-
-
-
-          {/* <span>{category}</span><br /> */}
-          {/* <span>{description}</span> */}
         </div>
-
       </div>
-
-
-
     </div>
   )
 }

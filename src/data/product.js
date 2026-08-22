@@ -189,6 +189,102 @@ const products = [
       shelf_life: "18 months"
     },
     date: "2025-01-05"
+  },
+
+   {
+    id: 7,
+    name: "Black Chana (Kala Chana)",
+    price: 649,
+    originalPrice: 749,
+    category: "Pulses",
+    rating: 4.7,
+    reviews: 102,
+    image: "https://wp25.dynamiclayers.net/agrox/wp-content/uploads/sites/4/2025/02/project-6.jpg",
+    images: [
+      "https://wp25.dynamiclayers.net/agrox/wp-content/uploads/sites/4/2025/02/project-6.jpg",
+      "https://wp25.dynamiclayers.net/agrox/wp-content/uploads/sites/4/2025/02/project-5.jpg",
+      "https://wp25.dynamiclayers.net/agrox/wp-content/uploads/sites/4/2025/02/project-3.jpg"
+    ],
+    description: "Premium black gram for traditional Indian dishes.",
+    fullDescription:
+      "High-quality Urad Dal sourced directly from experienced farmers. Rich in protein and dietary fiber, perfect for preparing dal, dosa, idli batter, and other traditional recipes.",
+    inStock: true,
+    stock: 90,
+    tags: ["urad", "pulse", "protein"],
+    colors: ["black"],
+    sizes: ["2kg", "5kg", "10kg"],
+    specifications: {
+      protein: "25%",
+      purity: "99%",
+      moisture: "10%",
+      origin: "Uttar Pradesh, India",
+      shelf_life: "18 months"
+    },
+    date: "2025-01-05"
+  },
+
+   {
+    id: 8,
+    name: "makkai",
+    price: 649,
+    originalPrice: 749,
+    category: "Pulses",
+    rating: 4.7,
+    reviews: 102,
+    image: "https://wp25.dynamiclayers.net/agrox/wp-content/uploads/sites/4/2025/02/project-6.jpg",
+    images: [
+      "https://wp25.dynamiclayers.net/agrox/wp-content/uploads/sites/4/2025/02/project-6.jpg",
+      "https://wp25.dynamiclayers.net/agrox/wp-content/uploads/sites/4/2025/02/project-5.jpg",
+      "https://wp25.dynamiclayers.net/agrox/wp-content/uploads/sites/4/2025/02/project-3.jpg"
+    ],
+    description: "Premium black gram for traditional Indian dishes.",
+    fullDescription:
+      "High-quality Urad Dal sourced directly from experienced farmers. Rich in protein and dietary fiber, perfect for preparing dal, dosa, idli batter, and other traditional recipes.",
+    inStock: true,
+    stock: 90,
+    tags: ["urad", "pulse", "protein"],
+    colors: ["black"],
+    sizes: ["2kg", "5kg", "10kg"],
+    specifications: {
+      protein: "25%",
+      purity: "99%",
+      moisture: "10%",
+      origin: "Uttar Pradesh, India",
+      shelf_life: "18 months"
+    },
+    date: "2025-01-05"
+  },
+
+   {
+    id: 9,
+    name: "makhana",
+    price: 649,
+    originalPrice: 749,
+    category: "Pulses",
+    rating: 4.7,
+    reviews: 102,
+    image: "https://wp25.dynamiclayers.net/agrox/wp-content/uploads/sites/4/2025/02/project-6.jpg",
+    images: [
+      "https://wp25.dynamiclayers.net/agrox/wp-content/uploads/sites/4/2025/02/project-6.jpg",
+      "https://wp25.dynamiclayers.net/agrox/wp-content/uploads/sites/4/2025/02/project-5.jpg",
+      "https://wp25.dynamiclayers.net/agrox/wp-content/uploads/sites/4/2025/02/project-3.jpg"
+    ],
+    description: "Premium black gram for traditional Indian dishes.",
+    fullDescription:
+      "High-quality Urad Dal sourced directly from experienced farmers. Rich in protein and dietary fiber, perfect for preparing dal, dosa, idli batter, and other traditional recipes.",
+    inStock: true,
+    stock: 90,
+    tags: ["urad", "pulse", "protein"],
+    colors: ["black"],
+    sizes: ["2kg", "5kg", "10kg"],
+    specifications: {
+      protein: "25%",
+      purity: "99%",
+      moisture: "10%",
+      origin: "Uttar Pradesh, India",
+      shelf_life: "18 months"
+    },
+    date: "2025-01-05"
   }
 ];
 

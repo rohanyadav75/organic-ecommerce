@@ -30,6 +30,14 @@
 .text {
   @apply text-[35px];
 }
+.text-2{
+  @apply text-[18px]
+}
+
+.text-3{
+  @apply text-[12px]
+}
+
 
 @theme {
   --font-primary: "Montserrat", "Lato", sans-serif;
@@ -39,7 +47,7 @@
 
   --color-primary: #43aa5c;
   --color-secondary: #164333;
-  --color-third: #797F7D;
+  --color-third: #e8ebea;
   --color-fourth: #F8C32C;
   /* ... */
 }
