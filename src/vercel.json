@@ -1,0 +1,8 @@
+{
+  "buildCommand": "npm run build",
+  "installCommand": "npm ci",
+  "devCommand": "npm run dev",
+  "env": {
+    "NEXT_PUBLIC_ENVIRONMENT": "production"
+  }
+}
