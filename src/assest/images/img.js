@@ -3,7 +3,7 @@ import home1 from './Home-1-slider.jpg';
 import home2 from './Home-2-slider.jpg';
 import home3 from './Home-3-slider.jpg';
 import rohan from './Rohan-Farm.png';
-import project from './project-6.jpg'
+import project from './Project-6.jpg'
 import abt from './About-1.png'
 import abthero from './About-2.png'
 import home from './Home-1.png'
