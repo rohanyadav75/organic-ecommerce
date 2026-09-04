@@ -3,8 +3,7 @@ import Homecontent from '../../data/Homecontent'
 import CircularGallery from '../react-bits/CircularGallery'
 import Button from '../common/Button'
 import { RoughNotation } from 'react-rough-notation'
-import { about } from '../../assest/images/img'
-import TiltImageCard from '../common/TiltImageCard'
+import { abt } from '../../assest/images/img'
 import Homeservicedata from '../../data/Homeservicedata'
 
 
@@ -90,7 +89,7 @@ const Homewhychoose = () => {
 
                 {featuredService && (
                     <div className="">
-                        <TiltImageCard src={about} alt={featuredService.title} imageClassName="h-[350px]" />
+                        <TiltImageCard src={abt} alt={featuredService.title} imageClassName="h-[350px]" />
 
                     </div>
                 )}

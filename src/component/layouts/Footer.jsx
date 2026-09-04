@@ -3,18 +3,19 @@ import './Footer.css'
 import { farmer, rohan } from '../../assest/images/img'
 import { IoLocationOutline } from 'react-icons/io5'
 import { MdCall } from 'react-icons/md'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <div className=' md:p-10 mt-30 w-full  bg-third'>
-      <ul className='p-10  md:flex items-start justify-evenly gap-50 '>
+    <div className=' md:mt-20 p-10 w-full  bg-secondary'>
+      <ul className=' color-third  md:flex items-start justify-evenly gap-45 '>
         <li className='text-3 '>
           <img src={farmer} className='w-20' alt='Rohan Farm' />
-          <p className='mt-5 md:txt-secondary'>Naturally flavorful, clean, and <br />full of vitamins for your family</p>
+          <p className=' md:txt-secondary'>Naturally flavorful, clean, and full of vitamins for your family</p>
         </li>
 
         {/* category */}
-        <li className='mt-5 md:mt-0'>
+        <li className='mt-5 md:mt-0 '>
           <p className='footer-heading txt-primary'>Categories</p>
           <div className='text-3 txt-secondary nav space-y-0.5'>
             <p>Rice</p>
@@ -29,10 +30,10 @@ const Footer = () => {
         <li className='mt-5 md:mt-0'>
           <p className='footer-heading txt-primary'>Links</p>
           <div className='text-3 txt-secondary nav space-y-0.5'>
-            <p>Home</p>
-            <p>About</p>
-            <p>Shop</p>
-            <p>Contact</p>
+            <p><Link to='/'>Home</Link></p>
+            <p><Link to='/about'>About</Link></p>
+            <p><Link to='/shop'>Shop</Link></p>
+            <p><Link to='/contact'>Contact</Link></p>
           </div>
         </li>
 

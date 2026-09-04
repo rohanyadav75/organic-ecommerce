@@ -4,9 +4,10 @@ import Homehero from '../component/home/Homehero';
 import Homeabout from '../component/home/Homeabout';
 import Homecategory from '../component/home/Homecategory';
 import Homeshop from '../component/home/Homeshop';
-import Homewhychoose from '../component/home/Homewhychoose';
-import Homeimage from '../component/home/Homeimage';
+// import Homewhychoose from '../component/home/Homewhychoose';
 import Footer from '../component/layouts/Footer';
+import Homestats from '../component/home/Homestats';
+import HomeCTA from '../component/home/HomeCTA';
 
 const Home = () => {
 
@@ -21,14 +22,14 @@ const Home = () => {
 
   return (
     <>
-
       <Homehero />
       <Homecategory />
+      <Homeshop />
       <Homeabout />
-      <Homeimage />
-      <Homeshop/>
-      <Homewhychoose />
-      <Footer/>
+      <Homestats />
+      <Homeshop />
+      <HomeCTA />
+
 
     </>
   )
