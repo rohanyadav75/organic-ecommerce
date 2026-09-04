@@ -1,4 +1,4 @@
-import { home3, project, rohan } from "../../assest/images/img";
+import { home3, alovera, rohan } from "../../assest/images/img";
 
 const blog = [
     {
@@ -7,7 +7,7 @@ const blog = [
         description: "The art of the slow morning"
     },
     {
-        image: project,
+        image: alovera,
         title: "Gathering",
         description: "A table set for more"
     },
@@ -17,7 +17,7 @@ const blog = [
         description: "Meet the makers"
     },
     {
-        image: project,
+        image: alovera,
         title: "Gathering",
         description: "A table set for more"
     }

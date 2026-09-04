@@ -17,10 +17,10 @@ const categoryfilter = ({ category, setCategory }) => {
 
                     <button onClick={() => setCategory("All")} className='border'>All</button>
 
-                    <button onClick={() => setCategory("Rice")} className='border'>Rice</button>
-                    <button onClick={() => setCategory("Wheat")} className='border'>Wheat</button>
-                    <button onClick={() => setCategory("Maize")} className='border'>Maize</button>
-                    <button onClick={() => setCategory("Pulses")} className='border'>Pulses</button>
+                    <button onClick={() => setCategory("Neem")} className='border'>Neem</button>
+                    <button onClick={() => setCategory("Alovera")} className='border'>Alovera</button>
+                    <button onClick={() => setCategory("Tulsi")} className='border'>Tulsi</button>
+                    {/* <button onClick={() => setCategory("Pulses")} className='border'>Pulses</button> */}
 
                 </div>
             </div>
