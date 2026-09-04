@@ -4,6 +4,7 @@
   @apply text-primary;
 }
 
+
 .color-secondary {
   @apply text-secondary;
 }
@@ -12,9 +13,11 @@
   @apply text-third;
 }
 
+
 .color-fourth {
   @apply text-fourth;
 }
+
 .txt-primary {
   @apply font-primary;
 }
@@ -23,16 +26,27 @@
   @apply font-secondary;
 }
 
+.text {
+  @apply text-[35px];
+}
+.text-2{
+  @apply text-[18px]
+}
+
+.text-3{
+  @apply text-[12px]
+}
+
 
 @theme {
-  --font-primary: "Lato", sans-serif;
-  --font-secondary: "DM Sans", sans-serif;
+  --font-primary: "Montserrat", "Lato", sans-serif;
+  --font-secondary: "Quicksand", "Montserrat", sans-serif;
 
   --breakpoint-3xl: 120rem;
 
   --color-primary: #43aa5c;
   --color-secondary: #164333;
-  --color-third: #797F7D;
+  --color-third: #e8ebea;
   --color-fourth: #F8C32C;
   /* ... */
 }
