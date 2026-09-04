@@ -1,5 +1,4 @@
 import React from 'react'
-import { motion } from "framer-motion";
 import { abt, home } from '../../assest/images/img'
 import Buttonsec from '../common/Buttonsec';
 

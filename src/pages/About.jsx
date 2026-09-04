@@ -3,7 +3,6 @@ import { abt, abthero, project } from '../assest/images/img'
 import Button from '../component/common/Button'
 import about from '../data/Home/shop'
 import Aboutcard from '../component/common/Aboutcard'
-import { div } from 'framer-motion/client'
 import Buttonsec from '../component/common/Buttonsec'
 const About = () => {
     return (
