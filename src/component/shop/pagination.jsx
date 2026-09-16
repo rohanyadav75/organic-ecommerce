@@ -2,19 +2,22 @@ import React from 'react'
 
 const pagination = ({ page, setPage, totalPages }) => {
     return (
-        <div >
-            <div className='flex justify-center gap-5 '>
-                <button className='border-1 my-5 p-1 hover:cursor-pointer txt-secondary text-3' onClick={() => setPage(page - 1)} disabled={page === 1}
-                >
-                    Previous
-                </button>
-
-                <button className='border-1 my-5 p-1 hover:cursor-pointer txt-secondary text-3' onClick={() => setPage(page + 1)} disabled={page === totalPages}
-                >
-                    Next
-                </button>
+        <div>
+            <div className='flex justify-center my-5 items-center gap-5'>
+                {[1, 2, 3, 4, 5].slice(0, totalPages).map((pageNumber) => (
+                    <button
+                        key={pageNumber}
+                        className={`border-1 rounded-full text-3 w-5 h-5 flex items-center justify-center hover:cursor-pointer ${
+                            page === pageNumber
+                                ? 'bg-secondary text-white'
+                                : 'txt-secondary bg-white hover:bg-secondary hover:text-white'
+                        }`}
+                        onClick={() => setPage(pageNumber)}
+                    >
+                        {pageNumber}
+                    </button>
+                ))}
             </div>
-
         </div>
     )
 }

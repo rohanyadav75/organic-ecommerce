@@ -1,7 +1,11 @@
 import React from 'react'
 import { abthero } from '../../assest/images/img'
 import Button from '../common/Button'
+import homePage from '../../data/Home/data'; // adjust path if different
 import { organic } from '../../assest/videos/video'
+
+const { hero } = homePage;
+
 
 const Homehero = () => {
   return (
@@ -16,13 +20,12 @@ const Homehero = () => {
           playsInline
         ></video>
         {/* <img  src={abthero} alt="" /> */}
-        <div className='absolute inset-0 bg-secondary/85 grid justify-start content-center gap-5 px-20'>
-          <p className='txt-secondary  text-3 color-third uppercase px-5'>About Us</p>
-          <h1 className='reltive txt-primary text-6xl color-third'>
-            A little more <span className='color-fourth'>wonder</span><br /> in the  everyday.
+        <div className='absolute inset-0 bg-[rgba(22,67,51,0.85)] grid justify-start content-center gap-5 px-20'>
+          <p className='txt-secondary text-3 color-third uppercase tracking-[0.10em]'>{hero.eyebrow}</p>
+          <h1 className='reltive txt-primary text-6xl color-third '>
+            Simple soaps inspired <br /> by everyday  <span className='color-fourth'>nature.</span>
           </h1>
-          <p className='txt-secondary color-third'>Agriculture is the backbone of our society, providing food, materials, <br /> and economic stability. As the world population grows,
-            the need for sustainable <br /> farming practices has never been more critical.</p>
+          <p className='txt-secondary color-third '>Small-batch soap made with simple plant ingredients: Neem, Aloe Vera, Turmeric, and more.<br /> Each bar gives a gentle lather, a light natural scent, and is made for everyday care.</p>
           <Button />
 
         </div>

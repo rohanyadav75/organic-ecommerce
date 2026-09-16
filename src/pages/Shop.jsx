@@ -1,78 +1,131 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Shopsearch from '../component/shop/shopsearch'
 import Categoryfilter from '../component/shop/categoryfilter'
-import Pricefilter from '../component/shop/pricefilter'
-import products from '../data/product'
+import products from '../data/Shop/data'
 import Pagination from '../component/shop/pagination'
 import Productcard from '../component/common/Productcard'
 
 const maxPrice = Math.max(...products.map((product) => product.price))
 
 const Shop = () => {
+
+  // Search
   const [search, setSearch] = useState("")
+
+  // Category
   const [category, setCategory] = useState("All")
+
+  // Ingredient
+  const [ingredient, setIngredient] = useState("All")
+
+  // Skintype
+  const [skintypes, setSkintypes] = useState("All")
+
+  // Price
   const [price, setPrice] = useState(maxPrice)
 
   // Pagination
   const [page, setPage] = useState(1)
-
   const productsPerPage = 6
 
-
-  const filteredProductcard = products.filter((product) => {
-    const searchText = search.toLowerCase()
-
-    const matchesSearch =
-      product.name.toLowerCase().includes(searchText) ||
-      product.category.toLowerCase().includes(searchText)
-
-    const matchesCategory =
+  const filteredProducts = products.filter((product) =>
+    (
+      product.name.toLowerCase().includes(search.toLowerCase()) ||
+      product.category.toLowerCase().includes(search.toLowerCase())
+    )
+    &&
+    (
       category === "All" ||
       product.category === category
+    )
+    &&
+    (
+      ingredient === "All" ||
+      product.mainIngredient.includes(ingredient)
+    )
+    &&
+    (
+      skintypes === "All" ||
+      product.skinType.includes(skintypes)
+    )
+    &&
+    (
+      product.price <= price
+    )
+  )
 
-    const matchesPrice = product.price <= price
-
-    return matchesSearch && matchesCategory && matchesPrice
-  })
-
-  // Pagination calculation
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage)
   const startIndex = (page - 1) * productsPerPage
-
-  const currentProducts = filteredProductcard.slice(
-    startIndex,
-    startIndex + productsPerPage
-  )
-
-  const totalPages = Math.ceil(
-    filteredProductcard.length / productsPerPage
-  )
+  const currentProducts = filteredProducts.slice(startIndex, startIndex + productsPerPage)
 
   return (
     <div>
 
-      <div className='gap-15 grid grid-cols-12 p-20'>
-        <div className='col-span-2'>
-          <Categoryfilter category={category} setCategory={setCategory} />
-          <Pricefilter price={price} setPrice={setPrice} maxPrice={maxPrice} />
-        </div>
+      <div className='relative gap-5 grid grid-cols-12 mt-20'>
 
-        <div className="p-5 gap-5 grid md:grid-cols-3 col-span-10">
-          <Shopsearch search={search} setSearch={setSearch} />
+        {/* Filter */}
+        <div className='col-span-3  '>
+          <div
+            className='bg-primary/12 sticky top-24 h-[500px] overflow-y-auto rounded-md border border-secondary/30 p-5'
+            style={{ alignSelf: 'start' }}
+          >
+            <Categoryfilter
+              category={category}
+              setCategory={setCategory}
+              ingredient={ingredient}
+              setIngredient={setIngredient}
+              skintypes={skintypes}
+              setSkintypes={setSkintypes}
+              price={price}
+              setPrice={setPrice}
+              maxPrice={maxPrice}
 
-          {currentProducts.map((product) => (
-
-            <Productcard
-              key={product.id}
-              {...product}
             />
 
-          ))}
+          </div>
+        </div>
 
+
+        {/* Products */}
+        <div className="col-span-9 px-5">
+          <div className="mb">
+            <Shopsearch
+              search={search}
+              setSearch={setSearch}
+              category={category}
+              setCategory={setCategory}
+              ingredient={ingredient}
+              setIngredient={setIngredient}
+              skintypes={skintypes}
+              setSkintypes={setSkintypes}
+            />
+          </div>
+
+          <div className="gap-5 grid md:grid-cols-3 mt-0">
+            {currentProducts.map((product) => (
+              <Link
+                key={product.id}
+                to="/product"
+                state={{ product }}
+                className="block"
+              >
+                <Productcard {...product} />
+              </Link>
+            ))}
+
+            <div className='col-span-full'>
+              <Pagination
+                page={page}
+                setPage={setPage}
+                totalPages={totalPages}
+              />
+            </div>
+          </div>
         </div>
-        <div className=" col-span-10 justify-evenly w-[100]">
-          <Pagination page={page} setPage={setPage} totalPages={totalPages} />
-        </div>
+
       </div>
+
     </div>
   )
 }

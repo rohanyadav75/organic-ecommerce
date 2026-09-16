@@ -1,8 +1,8 @@
-import { home3, alovera, rohan } from "../../assest/images/img";
+import { abt, alovera } from "../../assest/images/img";
 
 const blog = [
     {
-        image: rohan,
+        image: abt,
         title: "Ritual",
         description: "The art of the slow morning"
     },
@@ -12,7 +12,7 @@ const blog = [
         description: "A table set for more"
     },
     {
-        image: home3,
+        image: abt,
         title: "People",
         description: "Meet the makers"
     },

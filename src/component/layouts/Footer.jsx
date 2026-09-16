@@ -1,6 +1,6 @@
 import React from 'react'
 import './Footer.css'
-import { farmer, rohan } from '../../assest/images/img'
+import {  abt } from '../../assest/images/img'
 import { IoLocationOutline } from 'react-icons/io5'
 import { MdCall } from 'react-icons/md'
 import { Link } from 'react-router-dom'
@@ -10,7 +10,7 @@ const Footer = () => {
     <div className=' md:mt-20 p-10 w-full  bg-secondary'>
       <ul className=' color-third  md:flex items-start justify-evenly gap-45 '>
         <li className='text-3 '>
-          <img src={farmer} className='w-20' alt='Rohan Farm' />
+          <img src={abt} className='w-20' alt='Rohan Farm' />
           <p className=' md:txt-secondary'>Naturally flavorful, clean, and full of vitamins for your family</p>
         </li>
 
@@ -65,7 +65,7 @@ const Footer = () => {
         <li className='mt-5 md:mt-0 font-medium inline-flex'>
           <div className='flex flex-col gap-y-1'>
             <p className='footer-heading txt-primary'>Product</p>
-            <img className='w-10 hover:scale-110  duration-300' src={rohan} alt="" />
+            <img className='w-10 hover:scale-110  duration-300' src={abt} alt="" />
           </div>
         </li>
       </ul>

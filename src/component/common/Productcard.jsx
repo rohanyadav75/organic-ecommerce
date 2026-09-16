@@ -1,43 +1,56 @@
-import React from 'react'
+import React from "react";
+import { FiEye, FiHeart, FiShoppingCart } from "react-icons/fi";
 
-const styles = {
-  card: {
-    boxShadow: '0 10px 15px rgba(0,0,0,0.08)',
-    borderRadius: '16px',
-    color: '#374151',
-    fontSize: '12px',
-    marginTop: '40px',
-    border: '1px solid #F3C123',
-    backgroundColor: '#ffffff',
-    overflow: 'hidden',
-  },
-  img: { width: '100%', height: '192px', objectFit: 'cover', display: 'block' },
-  content: { padding: '12px' },
-  title: { textAlign: 'center', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' },
-  category: { textAlign: 'center', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' },
-  priceRow: { display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', marginTop: '8px' },
-  price: { fontWeight: 600 },
-  original: { fontSize: '10px', color: '#6b7280', textDecoration: 'line-through' },
-}
-
-const Productcard = ({ image, name, price, originalPrice, category }) => {
+const Productcard = ({ skinType, description, image, name, price, originalPrice, category }) => {
+  const skinTypeText = Array.isArray(skinType) ? skinType.join(", ") : skinType;
 
   return (
-    <div>
-      <div style={styles.card}>
-        <img style={styles.img} src={image} alt={name || 'product'} />
-        <div style={styles.content}>
-          <h1 style={styles.title}>{name}</h1>
-          <h1 style={styles.category}>{category}</h1>
+    <div className="mt-5 overflow-hidden text-3 shadow-sm ">
+      <div className="relative">
+        <img src={image} alt={name} className="block h-48 w-full object-cover" />
+        <button
+          type="button"
+          aria-label="Add to wishlist"
+          className="absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 shadow-md transition "
+        >
+          <FiHeart className="text-sm text-secondary" />
+        </button>
+        <button
+          type="button"
+          aria-label="Quick view"
+          className="absolute bottom-2 right-2 flex items-center gap-2 rounded-full bg-white/90 px-3 py-2 text-[10px] font-medium text-secondary shadow-md transition hover:bg-white"
+        >
+          <FiEye className="text-sm text-secondary" />
+          <span>Quick View</span>
+        </button>
+      </div>
 
-          <div style={styles.priceRow}>
-            <p style={styles.price}>₹{price}</p>
-            {originalPrice && <p style={styles.original}>₹{originalPrice}</p>}
+      <div className="grid items-center truncate justify-evenl p-2 gap-2">
+        <p className="w-fit rounded-2xl bg-primary/12 p-1.5 text-[10px] font-medium">{category}</p>
+        <h1 className="text-3 font-bold text-secondary">{name}</h1>
+        {/* <p>{description}</p> */}
+
+        <div className="border-t border-gray-200 pt-2">
+          <p>
+            <span className="font-bold text-secondary">Skin type :</span> {skinTypeText}
+          </p>
+        </div>
+
+        <div className="mt-2 flex items-center justify-between gap-3 txt-primary">
+          <div className="flex items-center gap-x-5">
+            <p className="font-bold text-3 text-secondary">₹{price}</p>
+            <p className="text-[10px] text-gray-500 line-through">₹{originalPrice}</p>
           </div>
+
+          <button className="flex items-center gap-2 rounded-full bg-secondary px-4 py-2 text-xs font-semibold text-white transition hover:opacity-90">
+            <FiShoppingCart className="text-sm" />
+            <span>Add to cart</span>
+          </button>
         </div>
       </div>
-    </div>
-  )
-}
 
-export default Productcard
+    </div>
+  );
+};
+
+export default Productcard;
