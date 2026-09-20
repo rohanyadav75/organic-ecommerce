@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import Shopsearch from '../component/shop/shopsearch'
 import Categoryfilter from '../component/shop/categoryfilter'
 import products from '../data/Shop/data'
@@ -8,7 +8,8 @@ import Productcard from '../component/common/Productcard'
 
 const maxPrice = Math.max(...products.map((product) => product.price))
 
-const Shop = () => {
+const Shop = ({ wishlist = [], toggleWishlist = () => {} }) => {
+  const location = useLocation()
 
   // Search
   const [search, setSearch] = useState("")
@@ -18,6 +19,14 @@ const Shop = () => {
 
   // Ingredient
   const [ingredient, setIngredient] = useState("All")
+
+  useEffect(() => {
+    if (location.state?.ingredient) {
+      setIngredient(location.state.ingredient)
+    } else {
+      setIngredient("All")
+    }
+  }, [location.state])
 
   // Skintype
   const [skintypes, setSkintypes] = useState("All")
@@ -106,11 +115,11 @@ const Shop = () => {
             {currentProducts.map((product) => (
               <Link
                 key={product.id}
-                to="/product"
+                to={`/product/${product.id}`}
                 state={{ product }}
                 className="block"
               >
-                <Productcard {...product} />
+                <Productcard {...product} wishlist={wishlist} toggleWishlist={toggleWishlist} />
               </Link>
             ))}
 

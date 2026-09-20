@@ -1,0 +1,114 @@
+.site-header{
+  /* header height controlled by variable to keep spacer in sync */
+  --header-height: 64px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 50;
+  background: linear-gradient(90deg, rgba(13,34,26,0.98) 0%, rgba(19,51,41,0.95) 100%);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(2px);
+}
+.nav-container{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 24px;
+}
+.logo{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-primary);
+  color: var(--color-third);
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+.logo .accent{
+  color: var(--color-fourth);
+}
+.nav-links ul{
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a{
+  position: relative;
+  color: var(--color-third);
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 6px 0;
+  transition: color .2s ease;
+}
+.nav-links a::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 3px;
+  width: 0;
+  background: var(--color-fourth);
+  transition: width .22s ease;
+  border-radius: 2px;
+}
+.nav-links a:hover{
+  color: var(--color-fourth);
+}
+.nav-links a:hover::after{
+  width: 100%;
+}
+.actions{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.icon-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+  color: var(--color-third);
+  transition: background .15s ease, transform .12s ease;
+}
+.icon-btn:hover{
+  background: var(--color-fourth);
+  color: #072018;
+  transform: translateY(-2px);
+}
+.cta{
+  padding: 8px 14px;
+  background: var(--color-fourth);
+  color: #072018;
+  border-radius: 20px;
+  font-weight: 700;
+  font-family: var(--font-secondary);
+}
+@media (max-width: 768px){
+  .nav-container{ padding: 8px 12px; }
+  .nav-links ul{ gap: 18px; }
+  .nav-links a{ font-size: 13px; }
+}
+
+/* spacer to prevent fixed header overlapping page content */
+.site-header + .page-spacer{
+  display: block;
+  height: var(--header-height);
+}
+
+@media (max-width: 768px){
+  .site-header{ --header-height: 60px; }
+}

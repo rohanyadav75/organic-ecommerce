@@ -1,8 +1,25 @@
 import React from "react";
 import { FiEye, FiHeart, FiShoppingCart } from "react-icons/fi";
 
-const Productcard = ({ skinType, description, image, name, price, originalPrice, category }) => {
+const Productcard = ({
+  id,
+  skinType,
+  description,
+  image,
+  name,
+  price,
+  originalPrice,
+  category,
+  wishlist = [],
+  toggleWishlist = () => {},
+}) => {
   const skinTypeText = Array.isArray(skinType) ? skinType.join(", ") : skinType;
+  const isWishlisted = wishlist.some((item) => item.id === id);
+
+  const handleWishlistClick = (event) => {
+    event.preventDefault();
+    toggleWishlist({ id, image, name, price, category, skinType, description, originalPrice });
+  };
 
   return (
     <div className="mt-5 overflow-hidden text-3 shadow-sm ">
@@ -11,9 +28,10 @@ const Productcard = ({ skinType, description, image, name, price, originalPrice,
         <button
           type="button"
           aria-label="Add to wishlist"
-          className="absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 shadow-md transition "
+          onClick={handleWishlistClick}
+          className="absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 shadow-md transition hover:scale-105"
         >
-          <FiHeart className="text-sm text-secondary" />
+          <FiHeart className={`text-sm ${isWishlisted ? "fill-secondary text-secondary" : "text-secondary"}`} />
         </button>
         <button
           type="button"
