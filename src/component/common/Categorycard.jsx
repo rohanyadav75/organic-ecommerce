@@ -3,10 +3,21 @@ import '../home/Homecategory.css'
 
 const Categorycard = ({ image, name }) => {
     return (
-        <div className='flex flex-col items-center border-0 '>
-            <img className='catimg' src={image} alt={name} />
-            <span className='text-sm mt-2'>{name}</span>
-        </div>
+        <>
+            {/* FOR DESKTOP */}
+            <div className='hidden md:flex flex-col items-center  '>
+                <img className='catimg border-3 border-primary/30 p-1 transition-all hover:border-fourth hover:scale-105' src={image} alt={name} />
+                <span className='text-sm mt-2'>{name}</span>
+            </div>
+
+
+            {/* FOR MOBILE */}
+            <div className='md:hidden flex flex-col items-center  '>
+                <img className=' p-1 h-30  transition-all hover:border-fourth hover:scale-105' src={image} alt={name} />
+                <span className='text-sm mt-2'>{name}</span>
+            </div>
+        </>
+
     )
 }
 

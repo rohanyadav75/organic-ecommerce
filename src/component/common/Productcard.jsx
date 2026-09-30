@@ -1,5 +1,7 @@
 import React from "react";
 import { FiEye, FiHeart, FiShoppingCart } from "react-icons/fi";
+import { useNavigate } from 'react-router-dom';
+import { useCart } from '../../context/CartContext'
 
 const Productcard = ({
   id,
@@ -15,10 +17,21 @@ const Productcard = ({
 }) => {
   const skinTypeText = Array.isArray(skinType) ? skinType.join(", ") : skinType;
   const isWishlisted = wishlist.some((item) => item.id === id);
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   const handleWishlistClick = (event) => {
     event.preventDefault();
     toggleWishlist({ id, image, name, price, category, skinType, description, originalPrice });
+  };
+
+  const handleQuickView = (event) => {
+    event.preventDefault();
+    navigate(`/product/${id}`, {
+      state: {
+        product: { id, image, name, price, originalPrice, category, skinType, description }
+      }
+    });
   };
 
   return (
@@ -33,9 +46,11 @@ const Productcard = ({
         >
           <FiHeart className={`text-sm ${isWishlisted ? "fill-secondary text-secondary" : "text-secondary"}`} />
         </button>
+        
         <button
           type="button"
           aria-label="Quick view"
+          onClick={handleQuickView}
           className="absolute bottom-2 right-2 flex items-center gap-2 rounded-full bg-white/90 px-3 py-2 text-[10px] font-medium text-secondary shadow-md transition hover:bg-white"
         >
           <FiEye className="text-sm text-secondary" />
@@ -60,7 +75,7 @@ const Productcard = ({
             <p className="text-[10px] text-gray-500 line-through">₹{originalPrice}</p>
           </div>
 
-          <button className="flex items-center gap-2 rounded-full bg-secondary px-4 py-2 text-xs font-semibold text-white transition hover:opacity-90">
+          <button onClick={() => addToCart({ id, image, name, price, originalPrice, category })} className="flex items-center gap-2 rounded-full bg-secondary px-4 py-2 text-xs font-semibold text-white transition hover:opacity-90">
             <FiShoppingCart className="text-sm" />
             <span>Add to cart</span>
           </button>

@@ -6,13 +6,13 @@ import { MdOutlineEmail, MdOutlinePhoneInTalk, MdOutlineWatchLater } from 'react
 const Contactform = () => {
     return (
         <div>
-            <div className='sm:grid  md:grid grid-cols-2 items-center px-30 mt-10 justify-items-center'>
+            <div className='grid grid-cols-1 md:grid-cols-2  items-start justify-items-center mt-10'>
                 {/* Send Message */}
-                <div className='rounded-2xl w-[100%] p-10 bg-primary/12'>
+                <div className='p-5 md:rounded-2xl md:p-10 bg-primary/12'>
                     <h1 className='text-secondary font-bold text-[22px] txt-primary'>Send us a message</h1>
-                    <p className='text-3 txt-secondary mt-2'>Fill out the form below and we'll get back to you <br />
+                    <p className='text-3 txt-secondary mt-2'>Fill out the form below and we'll get back to you
                         as soon as possible</p>
-                    <div className='space-x-3 '>
+                    <div className='flex items-center gap-5'>
                         <input type="text" placeholder='Enter Your Name' className='bg-white p-3 mt-5 text-3 w-[48%] rounded-[8px]' />
                         <input type="email" placeholder='Enter Your E-mail' className='bg-white p-3 mt-5 text-3 w-[48%] rounded-[8px]' />
                     </div>
@@ -21,17 +21,15 @@ const Contactform = () => {
                     <textarea id="" placeholder='Your Message' className='bg-white p-3 mt-5 text-3  h-50 w-full  rounded-[8px]'></textarea>
                     <button className='flex items-center gap-3 mt-5 bg-fourth p-3 px-5 rounded-3xl txt-secondary text-3 text-secondary font-bold'>Send Message <FiSend /></button>
 
-
-
                 </div>
 
                 {/*Get in Touch  */}
 
-                <div>
+                <div className='mt-10 p-5 md:p-0 mb-10'>
                     <h1 className='text-secondary font-bold text-[22px] txt-primary'>Get in touch</h1>
-                    <p className='text-3 txt-secondary mt-2'>Fill out the form below and we'll get back to you <br />
+                    <p className='text-3 txt-secondary mt-2'>Fill out the form below and we'll get back to you 
                         as soon as possible</p>
-                    <div className="mt-10 flex items-center border-gray-200 border-b space-y-5  gap-5">
+                    <div className="py-1 mt-5 md:mt-10 w-auto flex items-center border-gray-200 border-b space-y-5  gap-5">
                         {/* Location Icon */}
                         <div className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center">
                             <CiLocationOn className="text-secondary text-3xl" />
@@ -50,7 +48,7 @@ const Contactform = () => {
                     </div>
 
                     <div className="mt-10 flex items-center border-gray-200 border-b space-y-5 gap-5">
-                        {/* Location Icon */}
+                        {/* Email Icon */}
                         <div className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center">
                             <MdOutlineEmail className="text-secondary text-3xl" />
                         </div>
@@ -104,6 +102,7 @@ const Contactform = () => {
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     )

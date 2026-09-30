@@ -7,7 +7,7 @@ const aboutContent = {
         highlight: 'soap',
         etitle: 'rituals made effortless.',
         description:
-            'Small-batch, plant-powered soap bars crafted for gentle daily care and lasting lather.',
+            '',
     },
     story: {
         eyebrow: 'Our Journey',

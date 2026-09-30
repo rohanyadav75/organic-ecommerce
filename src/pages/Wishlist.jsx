@@ -5,7 +5,7 @@ import { FiHeart, FiTrash2 } from 'react-icons/fi';
 const Wishlist = ({ wishlist = [], toggleWishlist = () => { } }) => {
     if (!wishlist.length) {
         return (
-            <div className="mx-auto max-w-5xl px-4 py-16 text-center">
+            <div className="mx-auto max-w-5xl px-4 mt-5 py-16 text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-secondary">
                     <FiHeart size={28} />
                 </div>

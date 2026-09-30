@@ -1,12 +1,12 @@
 import React from 'react'
-import { useParams, useLocation } from 'react-router-dom'
+import { useParams, useLocation, Link } from 'react-router-dom'
 import data from '../data/Shop/data' // Adjust path as needed
 import Buttoncart from '../component/common/Buttoncart'
 import Homeshop from '../component/home/Homeshop'
 
 const Productdetail = () => {
     const { id } = useParams() // Get ID from URL
-    // const location = useLocation()
+    const location = useLocation()
     const productFromData = data.find(item => item.id === parseInt(id, 10))
     const product = productFromData || location.state?.product
 
@@ -86,11 +86,12 @@ const Productdetail = () => {
                     </p>
 
                     {/* ADD TO CART BUTTON */}
-                    <Buttoncart/>
-                    
+
+                    <Buttoncart product={{ id, image, name, price, originalPrice, category }} />
+
                 </div>
             </div>
-            <Homeshop/>
+            <Homeshop />
         </div>
     )
 }

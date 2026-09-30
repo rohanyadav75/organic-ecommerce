@@ -8,7 +8,7 @@ import Productcard from '../component/common/Productcard'
 
 const maxPrice = Math.max(...products.map((product) => product.price))
 
-const Shop = ({ wishlist = [], toggleWishlist = () => {} }) => {
+const Shop = ({ wishlist = [], toggleWishlist = () => { } }) => {
   const location = useLocation()
 
   // Search
@@ -113,14 +113,7 @@ const Shop = ({ wishlist = [], toggleWishlist = () => {} }) => {
 
           <div className="gap-5 grid md:grid-cols-3 mt-0">
             {currentProducts.map((product) => (
-              <Link
-                key={product.id}
-                to={`/product/${product.id}`}
-                state={{ product }}
-                className="block"
-              >
-                <Productcard {...product} wishlist={wishlist} toggleWishlist={toggleWishlist} />
-              </Link>
+              <Productcard {...product} wishlist={wishlist} toggleWishlist={toggleWishlist} />
             ))}
 
             <div className='col-span-full'>

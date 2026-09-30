@@ -12,20 +12,26 @@ const Homehero = () => {
     <div>
       <div className='relative overflow-hidden'>
         <video
-          className='h-auto w-full object-cover'
+          className='h-100 w-full md:h-auto md:w-full object-cover'
           src={organic}
           autoPlay
           muted
           loop
           playsInline
         ></video>
-        {/* <img  src={abthero} alt="" /> */}
-        <div className='absolute inset-0 bg-[rgba(22,67,51,0.85)] grid justify-start content-center gap-5 px-20'>
-          <p className='txt-secondary text-3 color-third uppercase tracking-[0.10em]'>{hero.eyebrow}</p>
-          <h1 className='reltive txt-primary text-6xl color-third '>
+
+        <div className='absolute p-5 items-center inset-0 bg-[rgba(22,67,51,0.85)] grid md:justify-start content-center md:gap-5 md:px-20'>
+          <p className='md:mt-0 mt-10 txt-secondary text-3 color-third uppercase tracking-[0.10em]'>{hero.eyebrow}</p>
+          <h1 className='hidden leading-none md:block reltive txt-primary text-6xl color-third md:leading-none'>
             Simple soaps inspired <br /> by everyday  <span className='color-fourth'>nature.</span>
           </h1>
-          <p className='txt-secondary color-third '>Small-batch soap made with simple plant ingredients: Neem, Aloe Vera, Turmeric, and more.<br /> Each bar gives a gentle lather, a light natural scent, and is made for everyday care.</p>
+
+
+          {/* Only view in mobile */}
+          <h1 className='block md:hidden txt-primary text-[30px] color-third '>
+            Simple soaps inspired by everyday  <span className='color-fourth'>nature.</span>
+          </h1>
+          <p className='txt-secondary color-third mb-5 md:mb-0'>Small-batch soap made with simple plant ingredients: Neem, Aloe Vera, Turmeric, and more.<br className='hidden md:block' /> Each bar gives a gentle lather, a light natural scent, and is made for everyday care.</p>
           <Button />
 
         </div>

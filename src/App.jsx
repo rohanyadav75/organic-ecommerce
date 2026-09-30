@@ -7,6 +7,7 @@ import Header from './component/layouts/Header';
 import Footer from './component/layouts/Footer';
 import Contact from './pages/Contact';
 import Productdetail from './pages/Productdetail';
+import Cart from './pages/Cart';
 import Wishlist from './pages/Wishlist';
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
           <Route path='/about' element={<About />} />
           <Route path='/shop' element={<Shop wishlist={wishlist} toggleWishlist={toggleWishlist} />} />
           <Route path='/wishlist' element={<Wishlist wishlist={wishlist} toggleWishlist={toggleWishlist} />} />
+          <Route path='/cart' element={<Cart />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/product/:id' element={<Productdetail />} />
           {/* <Route path='/product/:slug' element={<Productdetail />} /> */}

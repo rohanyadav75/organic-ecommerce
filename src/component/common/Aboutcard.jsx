@@ -5,7 +5,7 @@ const Aboutcard = ({ image, title, description }) => {
     return (
         <div>
             <div className='grid items-center justify-items-center content-center'>
-                <img src={src} className='object-cover shadow-2xl rounded-2xl w-[100%] h-70' alt={title} />
+                <img src={src} className='object-cover shadow rounded-2xl w-[100%] h-70' alt={title} />
             </div>
             <div className=' '>
                 <p className=''>{title}</p>
