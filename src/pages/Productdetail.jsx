@@ -4,7 +4,7 @@ import data from '../data/Shop/data' // Adjust path as needed
 import Buttoncart from '../component/common/Buttoncart'
 import Homeshop from '../component/home/Homeshop'
 
-const Productdetail = () => {
+const Productdetail = ({ wishlist = [], toggleWishlist = () => {} }) => {
     const { id } = useParams() // Get ID from URL
     const location = useLocation()
     const productFromData = data.find(item => item.id === parseInt(id, 10))
@@ -31,17 +31,17 @@ const Productdetail = () => {
 
     return (
         <div>
-            <div className='grid items-center justify-items-center mt-20 grid-cols-12 gap-8  p-8'>
+            <div className='md:grid items-center justify-items-center mt-10 md:mt-20 grid-cols-12 gap-8 p-5 md:p-8'>
 
                 {/* LEFT SIDE - IMAGE */}
-                <div className='col-span-6'>
-                    <img src={image} alt={name} className='w-full h-auto rounded-lg' />
+                <div className='md:col-span-6'>
+                    <img src={image} alt={name} className='w-full h-auto ' />
                 </div>
 
                 {/* RIGHT SIDE - DETAILS */}
-                <div className='col-span-6 text-secondary'>
-                    <h1 className='text-4xl font-bold mb-2'>{name}</h1>
-                    <p className=' mb-4'>{category}</p>
+                <div className='md:col-span-6 text-secondary'>
+                    <h1 className=' text-2 md:text-4xl font-bold mb-2'>{name}</h1>
+                    <p className='text-3 font-bold mb-4'>{category}</p>
                     <p className='text-3'>{fullDescription}</p>
 
                     {/* RATING */}
@@ -52,8 +52,8 @@ const Productdetail = () => {
 
                     {/* PRICE */}
                     <div className='flex items-center gap-3'>
-                        <span className='text font-bold text-secondary'>₹{price}</span>
-                        <span className='text-2 text-gray-400 line-through mt-2'>₹{originalPrice}</span>
+                        <span className='text-2 md:text font-bold text-secondary'>₹{price}</span>
+                        <span className='text-3 text-gray-400 line-through mt-2'>₹{originalPrice}</span>
                         {/* <span>{discount}</span> */}
                     </div>
 
@@ -91,7 +91,7 @@ const Productdetail = () => {
 
                 </div>
             </div>
-            <Homeshop />
+            <Homeshop wishlist={wishlist} toggleWishlist={toggleWishlist} />
         </div>
     )
 }

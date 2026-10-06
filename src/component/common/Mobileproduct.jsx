@@ -18,7 +18,7 @@ import {
 
 import Productcard from './Productcard'
 
-const Mobileproduct = ({ onClose }) => {
+const Mobileproduct = ({ onClose, wishlist = [], toggleWishlist = () => {} }) => {
 
     return (
         <div>
@@ -77,14 +77,7 @@ const Mobileproduct = ({ onClose }) => {
                                 onClick={onClose}
                             >
 
-                                <Productcard
-                                    image={data.image}
-                                    name={data.name}
-                                    price={data.price}
-                                    originalPrice={data.originalPrice}
-                                    category={data.category}
-                                    skinType={data.skinType}
-                                />
+                                <Productcard {...data} wishlist={wishlist} toggleWishlist={toggleWishlist} />
 
                             </Link>
 

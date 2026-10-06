@@ -18,7 +18,7 @@ import Productcard from '../common/Productcard'
 
 
 
-const Homeshop = () => {
+const Homeshop = ({ wishlist = [], toggleWishlist = () => {} }) => {
     return (
         <div>
             <div className='grid grid-cols-2 p-1 justify-items-start gap-0 mt-5 md:grid-cols-2 items-center md:justify-items-center md:gap-30 md:mt-20'>
@@ -69,7 +69,7 @@ const Homeshop = () => {
                                 state={{ product: data }}
                                 className="block"
                             >
-                                <Productcard image={data.image} name={data.name} price={data.price} originalPrice={data.originalPrice} category={data.category} />
+                                <Productcard {...data} wishlist={wishlist} toggleWishlist={toggleWishlist} />
                                 {/* <div className='txt-primary text-secondary mt-5 flex items-center justify-between'>
                                     <span className='text-[16px]'>{data.name}</span>
                                     <span className='text-3'>₹{data.price}</span>

@@ -35,16 +35,16 @@ const App = () => {
   return (
     <Router>
       <div>
-        <Header wishlistCount={wishlist.length} />
+        <Header wishlistCount={wishlist.length} wishlist={wishlist} toggleWishlist={toggleWishlist} />
         <div className="page-spacer" />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home wishlist={wishlist} toggleWishlist={toggleWishlist} />} />
           <Route path='/about' element={<About />} />
           <Route path='/shop' element={<Shop wishlist={wishlist} toggleWishlist={toggleWishlist} />} />
           <Route path='/wishlist' element={<Wishlist wishlist={wishlist} toggleWishlist={toggleWishlist} />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/product/:id' element={<Productdetail />} />
+          <Route path='/product/:id' element={<Productdetail wishlist={wishlist} toggleWishlist={toggleWishlist} />} />
           {/* <Route path='/product/:slug' element={<Productdetail />} /> */}
         </Routes>
         <Footer />

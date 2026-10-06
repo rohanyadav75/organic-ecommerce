@@ -4,7 +4,7 @@ import './Header.css'
 import { FiHeart, FiShoppingCart } from 'react-icons/fi'
 import { CiSearch } from "react-icons/ci";
 import { useCart } from '../../context/CartContext'
-import { RxHamburgerMenu } from "react-icons/rx";
+import { RxCross1, RxHamburgerMenu } from "react-icons/rx";
 import { GoChevronRight } from "react-icons/go";
 import { TfiHome } from "react-icons/tfi";
 import { PiInfoThin } from "react-icons/pi";
@@ -14,10 +14,12 @@ import Homeshop from '../home/Homeshop';
 import Mobileproduct from '../common/Mobileproduct';
 import Mobilecategory from '../common/Mobilecategory';
 
-const Header = ({ wishlistCount = 0 }) => {
+const Header = ({ wishlistCount = 0, wishlist = [], toggleWishlist = () => {} }) => {
     const { cart } = useCart()
     const totalItems = cart.reduce((s, p) => s + (p.quantity || 0), 0)
     const [hammenu, setHammenu] = useState(false)
+    const [open, setOpen] = useState(false);
+
 
     return (
         <div>
@@ -67,9 +69,14 @@ const Header = ({ wishlistCount = 0 }) => {
             {/* MOBILE MENU */}
             <div className='  mob-menu flex justify-between items-center border-b-1 text-white bg-secondary  h-auto p-2 w-full z-50 fixed top-0 text-2xl md:hidden '>
                 <div>
-                    <RxHamburgerMenu className='cursor-pointer relative' onClick={() => setHammenu(!hammenu)} />
+                    {hammenu ? (<RxCross1 onClick={() => setHammenu(false)}
+                    />
+                    ) : (<RxHamburgerMenu className='cursor-pointer' onClick={() => setHammenu(true)}
+                    />)}
+
+
                     {hammenu && (
-                        <div className="overflow-y-auto overflow-scroll absolute w-full top-10 left-0 h-[100vh]  bg-white text-secondary p-5">
+                        <div className="overflow-y-auto overflow-scroll absolute w-full pb-10 top-10 left-0 h-[100vh]  bg-white text-secondary p-5">
                             <ul className=" text-2 txt-primary flex flex-col gap-5 p-2 ">
                                 <li>
                                     <Link to="/" className='link ' onClick={() => setHammenu(false)}>
@@ -119,13 +126,15 @@ const Header = ({ wishlistCount = 0 }) => {
                                 </li>
                             </ul>
 
-                            <Mobilecategory/>
-                            <Mobileproduct onClose={() => setHammenu(false)} />
+                            <Mobilecategory onClose={() => setHammenu(false)}/>
+                            <Mobileproduct onClose={() => setHammenu(false)} wishlist={wishlist} toggleWishlist={toggleWishlist} />
                         </div>
 
                     )}
                 </div>
 
+
+                {/* SEARCH AND CART  */}
                 <div className='flex items-center gap-5'>
 
                     <CiSearch />

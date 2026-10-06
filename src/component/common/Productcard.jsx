@@ -27,6 +27,9 @@ const Productcard = ({
 
   const handleQuickView = (event) => {
     event.preventDefault();
+
+    if (!id) return;
+
     navigate(`/product/${id}`, {
       state: {
         product: { id, image, name, price, originalPrice, category, skinType, description }
@@ -53,7 +56,7 @@ const Productcard = ({
           onClick={handleQuickView}
           className="absolute bottom-2 right-2 flex items-center gap-2 rounded-full bg-white/90 px-3 py-2 text-[10px] font-medium text-secondary shadow-md transition hover:bg-white"
         >
-          <FiEye className="text-sm text-secondary" />
+          <FiEye  className="text-sm text-secondary" />
           <span>Quick View</span>
         </button>
       </div>

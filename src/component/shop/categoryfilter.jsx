@@ -27,13 +27,14 @@ const Categoryfilter = ({
 
     return (
 
-        <div className='p-2'>
+        <div className=' p-2  md:bg-transparent  w-100 md:w-auto'>
 
-            {/* CATEGORY */}
 
             <h1 className='border-black/10 color-secondary font-bold pb-2 border-b txt-primary text-[14px] '>
                 Categories:
             </h1>
+
+            {/* CATEGORY */}
 
             <div className='flex color-secondary flex-col mt-5 text-[12px] gap-5 txt-primary'>
 
@@ -44,7 +45,7 @@ const Categoryfilter = ({
                         className='flex color-secondary items-center gap-2'
                     >
 
-                        <input 
+                        <input
                             type="checkbox"
                             checked={category === item}
                             onChange={(e) =>

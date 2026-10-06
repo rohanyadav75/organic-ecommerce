@@ -3,6 +3,8 @@ import { abthero } from '../../assest/images/img'
 import Button from '../common/Button'
 import homePage from '../../data/Home/data'; // adjust path if different
 import { organic } from '../../assest/videos/video'
+import { motion } from "motion/react";
+
 
 const { hero } = homePage;
 
@@ -22,9 +24,9 @@ const Homehero = () => {
 
         <div className='absolute p-5 items-center inset-0 bg-[rgba(22,67,51,0.85)] grid md:justify-start content-center md:gap-5 md:px-20'>
           <p className='md:mt-0 mt-10 txt-secondary text-3 color-third uppercase tracking-[0.10em]'>{hero.eyebrow}</p>
-          <h1 className='hidden leading-none md:block reltive txt-primary text-6xl color-third md:leading-none'>
+          <motion.h1 initial={{}} animate={{}} transition={{}} className='hidden leading-none md:block reltive txt-primary text-6xl color-third md:leading-none'>
             Simple soaps inspired <br /> by everyday  <span className='color-fourth'>nature.</span>
-          </h1>
+          </motion.h1>
 
 
           {/* Only view in mobile */}

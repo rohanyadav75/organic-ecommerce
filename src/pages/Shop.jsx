@@ -5,6 +5,9 @@ import Categoryfilter from '../component/shop/categoryfilter'
 import products from '../data/Shop/data'
 import Pagination from '../component/shop/pagination'
 import Productcard from '../component/common/Productcard'
+import { CiFilter } from "react-icons/ci";
+import { GoChevronRight } from "react-icons/go";
+
 
 const maxPrice = Math.max(...products.map((product) => product.price))
 
@@ -19,6 +22,9 @@ const Shop = ({ wishlist = [], toggleWishlist = () => { } }) => {
 
   // Ingredient
   const [ingredient, setIngredient] = useState("All")
+
+  // Filter For Mobile
+  const [filter, setFilter] = useState(false)
 
   useEffect(() => {
     if (location.state?.ingredient) {
@@ -71,12 +77,12 @@ const Shop = ({ wishlist = [], toggleWishlist = () => { } }) => {
   return (
     <div>
 
-      <div className='relative gap-5 grid grid-cols-12 mt-20'>
+      <div className='relative gap-5 grid md:grid-cols-12 mt-20'>
 
         {/* Filter */}
-        <div className='col-span-3  '>
+        <div className=' md:col-span-3 hidden md:block  '>
           <div
-            className='bg-primary/12 sticky top-24 h-[500px] overflow-y-auto rounded-md border border-secondary/30 p-5'
+            className=' bg-primary/12 sticky top-24 h-[500px] overflow-y-auto rounded-md border border-secondary/30 p-5'
             style={{ alignSelf: 'start' }}
           >
             <Categoryfilter
@@ -89,7 +95,6 @@ const Shop = ({ wishlist = [], toggleWishlist = () => { } }) => {
               price={price}
               setPrice={setPrice}
               maxPrice={maxPrice}
-
             />
 
           </div>
@@ -97,7 +102,7 @@ const Shop = ({ wishlist = [], toggleWishlist = () => { } }) => {
 
 
         {/* Products */}
-        <div className="col-span-9 px-5">
+        <div className=" md:col-span-9 p-1 md:px-5">
           <div className="mb">
             <Shopsearch
               search={search}
@@ -111,7 +116,49 @@ const Shop = ({ wishlist = [], toggleWishlist = () => { } }) => {
             />
           </div>
 
-          <div className="gap-5 grid md:grid-cols-3 mt-0">
+
+          {/* ONLY FOR MOBILE FILTER */}
+          <div className='relative md:hidden'>
+            <div className='flex items-center justify-between gap-3'>
+              <button
+                type='button'
+                onClick={() => setFilter((prev) => !prev)}
+                aria-expanded={filter}
+                className='color-secondary flex items-center justify-center gap-2 rounded-md bg-secondary/12 h-10 px-3 txt-primary text-secondary font-semibold'
+              >
+                <CiFilter size={30} />
+                <span>Filters</span>
+              </button>
+
+              <div className='flex items-center gap-2'>
+                <h1>Sort by</h1>
+                <div className='flex gap-2 items-center border-1 rounded-full px-3 py-1 border-primary/12'>
+                  <h1>Featured</h1>
+                  <GoChevronRight />
+                </div>
+              </div>
+            </div>
+
+            {filter && (
+              <div className='absolute left-0 right-0 top-full z-50 mt-3 rounded-md border border-secondary/30 bg-white p-3 shadow-lg'>
+                <Categoryfilter
+                  category={category}
+                  setCategory={setCategory}
+                  ingredient={ingredient}
+                  setIngredient={setIngredient}
+                  skintypes={skintypes}
+                  setSkintypes={setSkintypes}
+                  price={price}
+                  setPrice={setPrice}
+                  maxPrice={maxPrice}
+                />
+              </div>
+            )}
+          </div>
+
+
+
+          <div className="gap-5 grid grid-cols-1.5 md:grid-cols-3 mt-0">
             {currentProducts.map((product) => (
               <Productcard {...product} wishlist={wishlist} toggleWishlist={toggleWishlist} />
             ))}

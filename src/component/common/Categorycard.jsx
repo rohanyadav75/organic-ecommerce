@@ -13,7 +13,7 @@ const Categorycard = ({ image, name }) => {
 
             {/* FOR MOBILE */}
             <div className='md:hidden flex flex-col items-center  '>
-                <img className=' p-1 h-30  transition-all hover:border-fourth hover:scale-105' src={image} alt={name} />
+                <img className='h-30 rounded-lg  transition-all hover:border-fourth hover:scale-105' src={image} alt={name} />
                 <span className='text-sm mt-2'>{name}</span>
             </div>
         </>

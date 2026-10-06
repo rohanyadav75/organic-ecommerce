@@ -8,7 +8,7 @@ import Footer from '../component/layouts/Footer';
 import Homestats from '../component/home/Homestats';
 import HomeCTA from '../component/home/HomeCTA';
 
-const Home = () => {
+const Home = ({ wishlist = [], toggleWishlist = () => {} }) => {
 
   // useEffect(() => {
   //   AOS.init({
@@ -23,10 +23,10 @@ const Home = () => {
     <>
       <Homehero />
       <Homecategory />
-      <Homeshop />
+      <Homeshop wishlist={wishlist} toggleWishlist={toggleWishlist} />
       <Homeabout />
       <Homestats />
-      <Homeshop />
+      <Homeshop wishlist={wishlist} toggleWishlist={toggleWishlist} />
       <HomeCTA />
 
 

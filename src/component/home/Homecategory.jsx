@@ -29,45 +29,25 @@ const Homecategory = () => {
 
             </div>
 
-            <Swiper
-                modules={[Navigation, Pagination, Scrollbar, Autoplay]}
-                pagination={{
-                    clickable: true,
-                    dynamicBullets: true
-                }}
-                loop={true}
-                spaceBetween={0}
-                slidesPerView={2}
-                navigation={{
-                    nextEl: '.custom-next',
-                    prevEl: '.custom-prev',
-                }}
-                autoplay={{ delay: 3000, disableOnInteraction: true }}
-                breakpoints={{
-                    0: {
-                        slidesPerView: 1,
-                    },
-                    640: {
-                        slidesPerView: 2,
-                    },
-                    
-                }}
-                className=' block shadow-md md:hidden'
-            >
-
+            <div className='p-5 md:hidden md:p-0 mt- txt-primary text-secondary '>
+                <p className='uppercase text-3'>Ingredients</p>
+            </div>
+            <div className=' grid grid-cols-3 gap-y-3'>
                 {category.map((item) => (
-                    <SwiperSlide key={item.id}>
-                        <Link
-                            key={item.id}
-                            to="/shop"
-                            state={{ ingredient: item.name }}
-                            className=" md:hidden  transition-transform"
-                        >
-                            <Categorycard image={item.image} name={item.name} />
-                        </Link>
-                    </SwiperSlide>
+                    <Link
+                        key={item.id}
+                        to="/shop"
+                        state={{ ingredient: item.name }}
+                        className=" md:hidden  transition-transform"
+                    >
+                        <Categorycard image={item.image} name={item.name} />
+                    </Link>
                 ))}
-            </Swiper>
+            </div>
+
+
+
+
 
         </div>
 
